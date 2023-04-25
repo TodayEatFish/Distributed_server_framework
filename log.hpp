@@ -619,6 +619,7 @@ namespace sylar {
 
 /// 日志器管理类单例模式
     typedef sylar::Singleton<LoggerManager> LoggerMgr;
+    //
 }
 
 #endif //DISTRIBUTED_SERVER_FRAMEWORK_UTIL_H
