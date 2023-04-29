@@ -208,9 +208,6 @@ private:
 
 
 
-
-
-
 /**
   * @brief: 输出到控制台的Appender
 */
@@ -221,6 +218,8 @@ public:
 
 
 };
+
+
 
 /**
   * @brief: 输出到文件的Appender

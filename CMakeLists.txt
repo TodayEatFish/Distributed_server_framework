@@ -3,4 +3,4 @@ project(Distributed_server_framework)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Distributed_server_framework main.c log.h log.c 1.hpp 1.cpp hook.h hook.c)
+add_executable(Distributed_server_framework main.c log.h log.c hook.h hook.c)
