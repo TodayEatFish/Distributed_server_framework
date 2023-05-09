@@ -3,4 +3,4 @@ project(Distributed_server_framework)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Distributed_server_framework main.cpp log.hpp log.cpp)
+add_executable(Distributed_server_framework main.cpp log.hpp log.cpp thread.h thread.cpp mutex.h mutex.cc)
