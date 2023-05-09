@@ -13,51 +13,79 @@
 #ifndef __SYLAR_THREAD_H__
 #define __SYLAR_THREAD_H__
 
-#include <thread>
-#include <functional>
-#include <memory>
-#include <string>
-#include <pthread.h>
+#include "mutex.h"
 
-namespace sylar{
-    class Thread{
-        /**
-            * @brief: 线程类
-        */
-    public:
-        typedef std::shared_ptr<Thread> ptr;
-        /**
-            * @brief: 构造函数
-        */
-        Thread(std::function<void()> cb, const std::string& name);
-        /**
-            * @brief: 析构函数
-        */
-        ~Thread();
+namespace sylar {
 
-        tid_t getId() const { return m_id; }
-        const std::string& getName() const{ return m_name; }
+/**
+ * @brief 线程类
+ */
+class Thread : Noncopyable {
+public:
+    /// 线程智能指针类型
+    typedef std::shared_ptr<Thread> ptr;
 
-        void join();
+    /**
+     * @brief 构造函数
+     * @param[in] cb 线程执行函数
+     * @param[in] name 线程名称
+     */
+    Thread(std::function<void()> cb, const std::string& name);
 
-        static Thread* GetThis();
-        static const std::string& GetName();
-        static void SetName(const std::string& name);   //写方法
-    private:
-        /**
-            * @brief: 禁止使用拷贝
-        */
-        Thread(const Thread&) = delete;
-        Thread(const Thread&&) = delete;
-        Thread operator=(const Thread&) = delete;
+    /**
+     * @brief 析构函数
+     */
+    ~Thread();
 
-        static void* run(void* arg);
-    private:
-        tid_t m_id = -1;
-        pthread_t m_thread = 0;
-        std::function<void()> m_cb;
-        std::string m_name;
-    };
+    /**
+     * @brief 线程ID
+     */
+    pid_t getId() const { return m_id;}
+
+    /**
+     * @brief 线程名称
+     */
+    const std::string& getName() const { return m_name;}
+
+    /**
+     * @brief 等待线程执行完成
+     */
+    void join();
+
+    /**
+     * @brief 获取当前的线程指针
+     */
+    static Thread* GetThis();
+
+    /**
+     * @brief 获取当前的线程名称
+     */
+    static const std::string& GetName();
+
+    /**
+     * @brief 设置当前线程名称
+     * @param[in] name 线程名称
+     */
+    static void SetName(const std::string& name);
+private:
+
+    /**
+     * @brief 线程执行函数
+     */
+    static void* run(void* arg);
+private:
+    /// 线程id
+    pid_t m_id = -1;
+    /// 线程结构
+    pthread_t m_thread = 0;
+    /// 线程执行函数
+    std::function<void()> m_cb;
+    /// 线程名称
+    std::string m_name;
+    /// 信号量
+    Semaphore m_semaphore;
+};
+
 }
 
 #endif
