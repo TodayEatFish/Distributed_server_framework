@@ -1,15 +1,17 @@
 /**
   ******************************************************************************
   * @file           : util.h
-  * @author         : mimang
-  * @brief          :常用的工具函数
+  * @author         : rose_island
+  * @brief          : None
   * @attention      : None
-  * @date           : 2023/4/25 / 16:54
+  * @date           : 2023/5/11 / 19:27
   ******************************************************************************
   */
 
 #ifndef DISTRIBUTED_SERVER_FRAMEWORK_UTIL_H
 #define DISTRIBUTED_SERVER_FRAMEWORK_UTIL_H
+#ifndef __SYLAR_UTIL_H__
+#define __SYLAR_UTIL_H__
 
 #include <cxxabi.h>
 #include <pthread.h>
@@ -41,6 +43,8 @@ namespace sylar {
  * @brief 返回当前协程的ID
  */
     uint32_t GetFiberId();
+
+
 
 /**
  * @brief 获取当前的调用栈

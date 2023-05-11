@@ -1,13 +1,12 @@
 /**
   ******************************************************************************
-  * @file           : main.cpp
-  * @author         : Zzzzzm
-  * @brief          : 线程模块
+  * @file           : thread.cpp
+  * @author         : rose_island
+  * @brief          : None
   * @attention      : None
-  * @date           : 2023/4/19   21:47
+  * @date           : 2023/5/11 / 19:35
   ******************************************************************************
   */
-
 #include "thread.h"
 #include "log.h"
 #include "util.h"
@@ -52,6 +51,7 @@ namespace sylar {
         m_semaphore.wait();
     }
 
+
     Thread::~Thread() {
         if(m_thread) {
             pthread_detach(m_thread);
@@ -69,6 +69,7 @@ namespace sylar {
             m_thread = 0;
         }
     }
+
 
     void* Thread::run(void* arg) {
         Thread* thread = (Thread*)arg;
