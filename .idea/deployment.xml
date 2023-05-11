@@ -2,14 +2,7 @@
 <project version="4">
   <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="mimang (64b05150-213b-44c9-b9af-56cf421520b0)">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/tmp/tmp.JVyqzpeB9e" local="$PROJECT_DIR$" />
-          </mappings>
-          <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
-          </excludedPaths>
+
         </serverdata>
       </paths>
     </serverData>
