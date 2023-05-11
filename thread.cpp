@@ -69,6 +69,7 @@ namespace sylar {
         }
     }
 
+
     void* Thread::run(void* arg) {
         Thread* thread = (Thread*)arg;
         t_thread = thread;

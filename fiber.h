@@ -27,6 +27,7 @@ namespace sylar {
         typedef std::shared_ptr<Fiber> ptr;
 
         /**
+         *
          * @brief 协程状态
          */
         enum State {
